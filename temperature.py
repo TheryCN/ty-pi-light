@@ -16,8 +16,8 @@ def main():
         UIColor.convert(2), UIColor.convert(5), UIColor.convert(8), UIColor.convert(12)]
 
         for x in range(width):
-            rgb = predictions[y]
             for y in range(height):
+                rgb = predictions[y]
                 unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
                 unicorn.show()
                 time.sleep(0.05)
