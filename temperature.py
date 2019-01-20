@@ -2,7 +2,7 @@
 
 import math
 import time
-from color import Letter
+from color import UIColor
 import unicornhat as unicorn
 
 def main():
