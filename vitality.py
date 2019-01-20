@@ -14,15 +14,15 @@ def main():
 
         yellow = [247, 178, 28]
         white = [255, 255, 255]
-        colors = [yellow, yellow, yellow, white, yellow, yellow, yellow]
+        colors = [yellow, yellow, yellow, white, yellow, yellow, yellow, white]
 
         for x in range(width):
             rgb = colors[x]
             for y in range(height):
-                if len(letters) > y :
-                    row = letters[y]
-                    if len(row) > x :
-                        if row[x] == 1 :
+                if len(letters) > x :
+                    row = letters[x]
+                    if len(row) > y :
+                        if row[y] == 1 :
                             unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
 
                 unicorn.show()
