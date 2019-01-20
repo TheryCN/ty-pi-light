@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-import math
 import time
-from color import Letter
+from letters import Letter
 import unicornhat as unicorn
 
 def main():
@@ -11,14 +10,21 @@ def main():
         unicorn.rotation(0)
         unicorn.brightness(0.3)
         width,height=unicorn.get_shape()
+        letters = Letter.V + Letter.I + Letter.T
 
-        predictions = [UIColor.convert(0), UIColor.convert(3), UIColor.convert(4), UIColor.convert(2),
-        UIColor.convert(2), UIColor.convert(5), UIColor.convert(8), UIColor.convert(12)]
+        yellow = [247, 178, 28]
+        white = [255, 255, 255]
+        colors = [yellow, yellow, yellow, white, yellow, yellow, yellow]
 
         for x in range(width):
-            rgb = predictions[x]
+            rgb = colors[x]
             for y in range(height):
-                unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
+                if len(letters) > y :
+                    row = letters[y]
+                    if len(row) > x :
+                        if row[x] == 1 :
+                            unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
+
                 unicorn.show()
                 time.sleep(0.05)
 
