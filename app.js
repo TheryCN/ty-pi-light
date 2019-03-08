@@ -51,7 +51,7 @@ app.get('/status', function (req, res) {
 app.get('/run/:script', function(req, res) {
   let search = scripts.find(script => script === req.params.script);
   if(search.length > 0) {
-    activeProcess = exec("python ./py/" + req.params.script + ".py", function (error, stdout, stderr) {
+    activeProcess = exec("sudo python ./py/" + req.params.script + ".py", function (error, stdout, stderr) {
       console.log(error);
     });
   }
