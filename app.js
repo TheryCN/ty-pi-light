@@ -23,7 +23,7 @@ wss.on('connection', function connection(ws) {
 });
 
 // Endpoints
-const scripts = ['vitality', 'temperature'];
+const scripts = ['vitality', 'temperature', 'customizable'];
 let activeProcess = undefined;
 
 /**
