@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 const path = require('path');
 var fs = require('fs');
 var http = require('http');
-const { exec } = require('child_process');
+const { spawn, exec } = require('child_process');
 const WebSocket = require('ws');
 
 const app = express();
@@ -51,9 +51,7 @@ app.get('/status', function (req, res) {
 app.get('/run/:script', function(req, res) {
   let search = scripts.find(script => script === req.params.script);
   if(search.length > 0) {
-    activeProcesses.push(exec("python ./py/" + req.params.script + ".py", {detached: true}, function (error, stdout, stderr) {
-      console.log(error);
-    }));
+    activeProcesses.push(spawn("python", ["./py/" + req.params.script + ".py"]));
   }
   res.send('Running...');
 });
