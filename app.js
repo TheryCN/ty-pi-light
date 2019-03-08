@@ -24,7 +24,7 @@ wss.on('connection', function connection(ws) {
 
 // Endpoints
 const scripts = ['vitality', 'temperature', 'customizable'];
-let activeProcess = undefined;
+let activeProcesses = [];
 
 /**
  * Customize colors (i.e. customizeColorsRequest.json).
@@ -51,9 +51,9 @@ app.get('/status', function (req, res) {
 app.get('/run/:script', function(req, res) {
   let search = scripts.find(script => script === req.params.script);
   if(search.length > 0) {
-    activeProcess = exec("python ./py/" + req.params.script + ".py", function (error, stdout, stderr) {
+    activeProcesses.push(exec("python ./py/" + req.params.script + ".py", {detached: true}, function (error, stdout, stderr) {
       console.log(error);
-    });
+    }));
   }
   res.send('Running...');
 });
@@ -62,8 +62,8 @@ app.get('/run/:script', function(req, res) {
  * Stop active process.
  */
 app.get('/stop', function(req, res) {
-  if(activeProcess) {
-    activeProcess.kill('SIGINT');
+  if(activeProcesses.length > 0) {
+    activeProcesses.forEach(activeProcess => activeProcess.kill('SIGINT'));
   }
   res.send('Stopping...');
 });
