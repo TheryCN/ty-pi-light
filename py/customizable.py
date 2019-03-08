@@ -17,8 +17,7 @@ def on_message(ws, message):
                 for y in range(height):
                     if len(colors[x]) > y and len(colors[x][y])==3 :
                         rgb = colors[x][y]
-                        if len(rgb) = 3:
-                            unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
+                        unicorn.set_pixel(x, y, rgb[0], rgb[1], rgb[2])
                     unicorn.show()
                     time.sleep(0.05)
     except:
