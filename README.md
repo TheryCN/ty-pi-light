@@ -12,4 +12,4 @@ pip install websocket_client
 
 # Running
 
-sudo app.js
+sudo node app.js
