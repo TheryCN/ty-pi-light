@@ -1,0 +1,10 @@
+[Unit]
+Description=Pi Light API Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=sudo node /home/pi/Documents/GitHub/ty-pi-light/app.js
+
+[Install]
+WantedBy=multi-user.target
