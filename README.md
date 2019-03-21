@@ -21,3 +21,6 @@ cd /etc/systemd/system/
 sudo cp /home/pi/Documents/GitHub/ty-pi-light/*.service /etc/systemd/system
 sudo systemctl enable ty-pi-light-api.service
 sudo systemctl enable ty-pi-light-customizable.service
+
+sudo systemctl disable ty-pi-light-api.service
+sudo systemctl disable ty-pi-light-customizable.service

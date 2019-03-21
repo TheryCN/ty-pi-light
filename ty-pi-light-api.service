@@ -6,7 +6,7 @@ After=multi-user.target
 Type=idle
 User=pi
 WorkingDirectory=/home/pi/Documents/GitHub/ty-pi-light
-ExecStart=/usr/bin/node app.js
+ExecStart=/usr/bin/sudo /usr/bin/node app.js
 
 [Install]
 WantedBy=multi-user.target
