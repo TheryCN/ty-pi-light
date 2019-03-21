@@ -28,15 +28,14 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
+    time.sleep(15)
+    print("### trying to reconnect ###")
+    connect()
 
 def on_open(ws):
     ws.send("Hello i'm your client")
 
-if __name__ == '__main__':
-    unicorn.set_layout(unicorn.AUTO)
-    unicorn.rotation(0)
-    unicorn.brightness(0.3)
-
+def connect():
     ws = websocket.WebSocket()
     ws = websocket.WebSocketApp("ws://localhost:4000",
                               on_message = on_message,
@@ -44,3 +43,9 @@ if __name__ == '__main__':
                               on_close = on_close)
     ws.on_open = on_open
     ws.run_forever()
+
+if __name__ == '__main__':
+    unicorn.set_layout(unicorn.AUTO)
+    unicorn.rotation(0)
+    unicorn.brightness(0.3)
+    connect()
