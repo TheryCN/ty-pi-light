@@ -22,7 +22,7 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', message);
   });
   client = ws;
-  client.send(hi);
+  client.send(JSON.stringify(hi));
 });
 
 // Endpoints
