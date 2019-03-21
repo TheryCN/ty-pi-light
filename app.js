@@ -15,7 +15,7 @@ app.use(bodyParser.json()); // for parsing application/json
 // Websockets
 const wss = new WebSocket.Server({ server });
 let client = undefined;
-let hi = fs.readFileSync('json/hi_blue.json');
+let hi = JSON.parse(fs.readFileSync('./json/hi_blue.json'));
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
