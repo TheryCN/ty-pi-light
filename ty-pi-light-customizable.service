@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=idle
 User=pi
-ExecStart=sudo python /home/pi/Documents/GitHub/ty-pi-light/py/customizable.py
+ExecStart=sudo /usr/bin/python3.5 /home/pi/Documents/GitHub/ty-pi-light/py/customizable.py
 
 [Install]
 WantedBy=multi-user.target

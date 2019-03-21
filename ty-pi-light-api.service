@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=idle
 User=pi
-ExecStart=cd /home/pi/Documents/GitHub/ty-pi-light && sudo node app.js
+ExecStart=cd /home/pi/Documents/GitHub/ty-pi-light && sudo /usr/bin/node app.js
 
 [Install]
 WantedBy=multi-user.target
